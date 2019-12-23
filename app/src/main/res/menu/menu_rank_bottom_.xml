@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_point"
+        android:enabled="true"
+        android:icon="@drawable/point"
+        android:title="포인트" />
+
+    <item
+        android:id="@+id/navigation_read"
+        android:enabled="true"
+        android:icon="@drawable/read"
+        android:title="읽은 책 수" />
+
+    <item
+        android:id="@+id/navigation_upload"
+        android:enabled="true"
+        android:icon="@drawable/upload"
+        android:title="등록한 책 수" />
+
+</menu>

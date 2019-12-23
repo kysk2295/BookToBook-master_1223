@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="440dp"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bluelight"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/wrong"
+            android:id="@+id/imageview_wrong"
+            android:layout_marginLeft="15dp">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시간, 장소 정하기"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="10dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/s_mail"
+                android:id="@+id/imageview_s_mail"
+                android:layout_marginLeft="15dp">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sender"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp">
+
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="koyunseo"
+                android:id="@+id/textview_sender"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dp"/>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B8B3B3"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/r_mail"
+                android:id="@+id/imageview_r_mail"
+                android:layout_marginLeft="15dp">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="receiver"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp">
+
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kwakkun"
+                android:id="@+id/textview_receiver"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dp"/>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B8B3B3"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/calendar"
+                android:id="@+id/imageview_time"
+                android:layout_marginLeft="15dp">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="time"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp">
+
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12/25 오전 3시"
+                android:id="@+id/textview_time"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dp"/>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B8B3B3"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/placeholder"
+                android:id="@+id/imageview_place"
+                android:layout_marginLeft="15dp">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="place"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp">
+
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="서울역"
+                android:id="@+id/textview_place"
+                android:textColor="#000000"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dp"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B8B3B3"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.9"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/bell_"
+                android:id="@+id/imageview_alarm"
+                android:layout_marginLeft="15dp">
+
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="alarm"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp">
+
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1시간 전"
+                android:id="@+id/textview_alarm"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="15dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#8C9EFF"
+            android:text="ok"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/textview_ok"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FF6E00"
+            android:text="cancel"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/textview_cancel">
+
+        </TextView>
+
+    </LinearLayout>
+</LinearLayout>

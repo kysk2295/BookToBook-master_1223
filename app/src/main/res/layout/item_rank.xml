@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.alespero.expandablecardview.ExpandableCardView
+        android:layout_margin="10dp"
+        android:id="@+id/item_rank_expandable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:title="이름"
+        app:inner_view="@layout/inner_view"
+        app:expandOnClick="true"/>
+
+</LinearLayout>
