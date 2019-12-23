@@ -34,11 +34,11 @@ public class LoginActivity extends AppCompatActivity {
     private String id;
     private String password;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         SharedPreferences preferences = getSharedPreferences("pref",MODE_PRIVATE);
         Boolean isLoginOnce = preferences.getBoolean("isLogin",false);

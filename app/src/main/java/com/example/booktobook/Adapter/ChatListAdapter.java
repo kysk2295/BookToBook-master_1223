@@ -43,8 +43,9 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Chat chat=chats.get(position);
         holder.name.setText(chat.roomName);
-        holder.time.setText((CharSequence) chat.timestamp);
-        holder.chat.setText(chat.message);
+        holder.time.setText(chat.latesttime);
+        holder.chat.setText(chat.latestmessage);
+
 
     }
 

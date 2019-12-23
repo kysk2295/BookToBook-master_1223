@@ -277,25 +277,25 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#8C9EFF"
-            android:text="ok"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:id="@+id/textview_ok"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="#FF6E00"
             android:text="cancel"
             android:textColor="#ffffff"
             android:gravity="center"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:id="@+id/textview_cancel">
+            android:id="@+id/textview_cancel"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#8C9EFF"
+            android:text="ok"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:id="@+id/textview_ok">
 
         </TextView>
 

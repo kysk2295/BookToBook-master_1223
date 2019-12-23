@@ -21,10 +21,10 @@ public class DeviceBootReceiver extends BroadcastReceiver {
 
             AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
             SharedPreferences preferences=context.getSharedPreferences("pref",Context.MODE_PRIVATE);
-            long mills=preferences.getLong("long", Calendar.getInstance().getTimeInMillis());
+            long mills=preferences.getLong("long", 123);
 
             if (manager!=null){
-                //manager.set(AlarmManager.RTC_WAKEUP,mills,pendingIntent);
+                manager.set(AlarmManager.RTC_WAKEUP,mills,pendingIntent);
             }
         }
     }

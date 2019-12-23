@@ -35,7 +35,10 @@ public class ChatActivity extends AppCompatActivity {
     ImageButton chatBackButton;
     DocumentReference documentReference;
     String id;
+    Chat chat;
     Context mcontext=this;
+    int cnt;
+    ChatListAdapter chatListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class ChatActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("pref", MODE_PRIVATE);
         id = sharedPreferences.getString("ID", "id");
-        final ChatListAdapter chatListAdapter= new ChatListAdapter(chats);
+        chatListAdapter= new ChatListAdapter(chats);
         recyclerView.setAdapter(chatListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -62,7 +65,6 @@ public class ChatActivity extends AppCompatActivity {
         //for test
       //  id = "1234";
 
-        final Chat chat = new Chat();
 
         db.collection("room")
                 .whereEqualTo("haver",id)
@@ -74,8 +76,37 @@ public class ChatActivity extends AppCompatActivity {
                     for (QueryDocumentSnapshot snapshot : task.getResult()) {
                         if (snapshot.exists()) {
 
+                            chat= new Chat();
                             //방 Id
                             chat.id = snapshot.getId();
+//
+//                            db.collection("chat")
+//                                    .whereEqualTo("room_id",id)
+//                                    .get()
+//                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                            cnt=0;
+//                                            final String message[]=new String[task.getResult().size()];
+//                                            final String time[]=new String[task.getResult().size()];
+//                                            if (task.isSuccessful()){
+//                                                for (QueryDocumentSnapshot snapshot:task.getResult())
+//                                                {
+//                                                    message[cnt]=snapshot.getString("message");
+//                                                    time[cnt]=snapshot.getString("timestamp");
+//                                                    cnt++;
+//                                                }
+//                                                chat.latestmessage=message[0];
+//                                                chat.latesttime=time[0];
+//
+//                                                Log.d("test",chat.latestmessage);
+//                                                Log.d("test",chat.latesttime);
+//
+//
+//                                                chatListAdapter.notifyDataSetChanged();
+//                                            }
+//                                        }
+//                                    });
                             //방 이름
                             chat.haver = snapshot.getString("haver");
                             chat.borrower = snapshot.getString("borrower");
@@ -84,6 +115,8 @@ public class ChatActivity extends AppCompatActivity {
                             //chat.name 에다 자기 id 넣어줌.
                             chat.name = id;
                             chats.add(chat);
+
+
                             Log.d("kwk",chat.haver+" / "+chat.roomName);
                         }
 
@@ -106,16 +139,48 @@ public class ChatActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot snapshot : task.getResult()) {
                                 if (snapshot.exists()) {
 
+                                         chat= new Chat();
                                         //방 Id
                                         chat.id = snapshot.getId();
+//                                    db.collection("chat")
+//                                            .whereEqualTo("room_id",id)
+//                                            .get()
+//                                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                                @Override
+//                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                                    cnt=0;
+//                                                    final String message[]=new String[task.getResult().size()];
+//                                                    final String time[]=new String[task.getResult().size()];
+//                                                    if (task.isSuccessful()){
+//                                                        for (QueryDocumentSnapshot snapshot:task.getResult())
+//                                                        {
+//                                                            message[cnt]=snapshot.getString("message");
+//                                                            time[cnt]=snapshot.getString("timestamp");
+//                                                            cnt++;
+//                                                        }
+//                                                        chat.latestmessage=message[0];
+//                                                        chat.latesttime=time[0];
+//
+//
+//                                                        Log.d("test",chat.latestmessage);
+//                                                        Log.d("test",chat.latesttime);
+//
+//
+//                                                        chatListAdapter.notifyDataSetChanged();
+//                                                    }
+//                                                }
+//                                            });
                                         //방 이름
                                         chat.haver = snapshot.getString("haver");
                                         chat.borrower = snapshot.getString("borrower");
                                         chat.roomName = chat.haver;
                                         //chat.name 에다 자기 id 넣어줌.
                                         chat.name = id;
+
                                         chats.add(chat);
+
                                         Log.d("kwk",chat.haver+" / "+chat.roomName+"test2");
+                                        Log.d("test",chat.latestmessage);
 
 
                                 }
@@ -195,4 +260,25 @@ public class ChatActivity extends AppCompatActivity {
 //
 
         }
+
+    private void getProfile(final String id) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+
+        }).start();
+
+
+
+    }
+
+//    private  String reMessage() {
+//        return chat.latestmessage;
+//    }
+//    private String reTime(){
+//        return chat.latesttime;
+//    }
 }

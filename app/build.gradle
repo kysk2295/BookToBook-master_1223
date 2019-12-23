@@ -5,13 +5,17 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.booktobook"
-        minSdkVersion 24
+        minSdkVersion 21
         targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
 
     }
     buildTypes {
@@ -55,6 +59,7 @@ dependencies {
     implementation 'com.google.android.libraries.places:places:2.0.0'
     // PING Place Picker
     implementation 'com.github.rtchagas:pingplacepicker:1.1.6'
+    implementation 'com.afollestad.material-dialogs:core:3.1.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

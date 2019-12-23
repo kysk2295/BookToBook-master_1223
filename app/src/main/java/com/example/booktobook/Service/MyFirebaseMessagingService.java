@@ -16,6 +16,7 @@ import androidx.core.app.RemoteInput;
 import com.example.booktobook.Activity.ChatActivity;
 import com.example.booktobook.Activity.MessageActivity;
 import com.example.booktobook.R;
+import com.example.booktobook.Receiver.ActionReceiver;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -84,6 +85,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .addRemoteInput(remoteInput)
                 .setAllowGeneratedReplies(true)
                 .build();
+        Log.d("fuck","cancel");
+
+        Intent actionIntent = new Intent(getApplicationContext(), ActionReceiver.class);
+        actionIntent.putExtra("action","cancel");
+        Intent actionIntetnt2= new Intent(getApplicationContext(),ActionReceiver.class);
+        actionIntetnt2.putExtra("action","confirm");
+
+        PendingIntent cancelPendingIntent=PendingIntent.getBroadcast(getApplicationContext(),1,actionIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent confirmPendingIntent=PendingIntent.getBroadcast(getApplicationContext(),2,actionIntetnt2,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(getApplicationContext(), channelId)
@@ -93,7 +103,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setContentText(body)
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
-                        .setContentIntent(pendingIntent);
+                        .setContentIntent(pendingIntent)
+                        .addAction(R.drawable.cross_,"취소",cancelPendingIntent)
+                        .addAction(R.drawable.check_,"확인",confirmPendingIntent);
+
+
+
 
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

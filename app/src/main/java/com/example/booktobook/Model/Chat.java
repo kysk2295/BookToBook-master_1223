@@ -12,5 +12,7 @@ public class Chat implements Serializable {
     public String message="";
     public String timestamp;
     public String id="";
+    public String latesttime="";
+    public String latestmessage="";
     long sent;
 }

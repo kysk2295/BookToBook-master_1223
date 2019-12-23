@@ -15,6 +15,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
 
     <application
         android:allowBackup="true"
@@ -71,6 +74,7 @@
 
         <receiver android:name=".Receiver.AlarmReceiver">
         </receiver>
+        <receiver android:name=".Receiver.ActionReceiver"/>
 
     </application>
 

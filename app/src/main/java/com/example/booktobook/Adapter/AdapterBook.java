@@ -102,7 +102,7 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.ViewHolder> {
                     // 자기 자신에게 알림
                     final int notiId = 101;
                     final String strChannelId = "channel_id";
-                    String content = haver.getText().toString().substring(3) + "님의 " + title.getText().toString() + " 책 을 빌렸습니다.";
+                    String content = "채팅방이 열였습니다.";
                     // Pending intent 생성
                     Intent notificationIntent = new Intent(mcontext, ChatActivity.class);
                     notificationIntent.putExtra("noti_id", notiId);
@@ -113,7 +113,7 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.ViewHolder> {
                     NotificationCompat.Builder builder = new NotificationCompat.Builder(mcontext, strChannelId);
                     builder.setContentTitle("BookToBook")
                             .setContentText(content)
-                            .setSmallIcon(R.mipmap.ic_launcher)
+                            .setSmallIcon(R.mipmap.library)
                             .setContentIntent(contentIntent)
                             .setAutoCancel(true)
                             .setWhen(System.currentTimeMillis())
@@ -141,18 +141,19 @@ public class AdapterBook extends RecyclerView.Adapter<AdapterBook.ViewHolder> {
                     final String SERVER_KEY = "AAAAvwFFAB0:APA91bH27fELBmCwMY1ND4vQVUeaKmujW-k0N72NDzhJDaoV4IQ9z-KHcfS1UePQ_bGUKK2vWbJRmFLD_6txrpS8BJj5tpU1NKashowU-6jat4RW5aaPeQVHn9m6y7ZHlPqCJi4y1kB9";
                     documentReference=db.collection("Users")
                             .document(haver.getText().toString().substring(3));
-                    final DocumentReference finalDocumentReference = documentReference;
                     documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                             token= (String) documentSnapshot.get("token");
                             Log.d("yourToken",token);
+                            Log.d("yourToken",haver.getText().toString());
 
                             new Thread(new Runnable() {
                                 @Override
                                 public void run() {
                                     try {
+                                        Log.d("##","test1");
                                         JSONObject root = new JSONObject();
                                         JSONObject notification = new JSONObject();
                                         String data = "채팅방이 열렸습니다.";

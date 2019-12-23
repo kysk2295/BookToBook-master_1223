@@ -1,16 +1,20 @@
 package com.example.booktobook.Activity;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.booktobook.Fragment.EnrollFragment;
 import com.example.booktobook.Fragment.ProfileFragment;
 import com.example.booktobook.R;
@@ -20,6 +24,7 @@ import com.example.booktobook.Fragment.ShowFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
@@ -33,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private ShowFragment showFragment = new ShowFragment();
     private ProfileFragment profileFragment = new ProfileFragment();
     private ShelfFragment shelfFragment = new ShelfFragment();
+    Boolean flag;
+    private Context context=this;
 
     private Intent serviceIntent;
 
@@ -47,10 +54,45 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences preferences = getSharedPreferences("pref",MODE_PRIVATE);
+        final String ID = preferences.getString("ID","");
+        FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+        flag=false;
+        firebaseFirestore.collection("Users")
+                .document(ID)
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                flag=documentSnapshot.getBoolean("flag");
+                if (flag)
+                {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                    builder.setTitle("BookToBook");
+                    builder.setMessage("책을 기부하였습니까?");
+                    builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            flag=false;
+                        }
+                    });
+                    builder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            flag=false;
+                        }
+                    });
+                    builder.setCancelable(false);
+                    builder.show();
+                }
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
 

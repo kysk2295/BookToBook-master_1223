@@ -10,6 +10,7 @@ public class User {
     private int uploaded_book_count;
     private int borrowed_book_count;
     private List<Alert> alert;
+    private boolean flag;
 
     public User() {
     }
@@ -20,6 +21,7 @@ public class User {
         this.point = 20;
         this.uploaded_book_count = 0;
         this.borrowed_book_count = 0;
+        this.flag=false;
     }
 
     public User(String id, String password, int point, int uploaded_book_count, int borrowed_book_count) {
@@ -28,8 +30,11 @@ public class User {
         this.point = point;
         this.uploaded_book_count = uploaded_book_count;
         this.borrowed_book_count = borrowed_book_count;
+        this.flag=false;
     }
 
+    public Boolean getFlag() {return flag;}
+    public void setFlag(Boolean flag){this.flag=flag;}
     public String getId() {
         return id;
     }
